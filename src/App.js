@@ -13,7 +13,7 @@ export class App extends Component {
   render() {
     return (
       <div className="container">
-        <Header hour={5} minute={2} second={55} />
+        <Header hour={1} minute={60} second={60} />
         <Controls />
       </div>
     );

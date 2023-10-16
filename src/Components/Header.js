@@ -3,14 +3,24 @@ import "./style.css";
 
 class Header extends Component {
   state = {
-    hour: this.props.hour,
-    minute: this.props.minute,
-    second: this.props.second,
+    hour: this.props.hour || 0,
+    minute: this.props.minute || 0,
+    second: this.props.second || 0,
   };
 
   getNormalTime = (n) => {
     return n < 10 ? "0" + n : n;
   };
+
+  interval = setInterval(() => {
+    this.setState((state) => {
+      return {
+        second: state.second - 1,
+        minute: state.minute - 1,
+        hour: state.hour - 1,
+      };
+    });
+  }, 1000);
 
   render() {
     return (
