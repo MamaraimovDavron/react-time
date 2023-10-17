@@ -12,15 +12,23 @@ class Header extends Component {
     return n < 10 ? "0" + n : n;
   };
 
-  interval = setInterval(() => {
-    this.setState((state) => {
-      return {
-        second: state.second - 1,
-        minute: state.minute - 1,
-        hour: state.hour - 1,
-      };
-    });
-  }, 1000);
+  componentDidMount(){
+    setInterval(() => {
+      this.setState((state) => {
+        return {
+          // second: state.second - 1 < 0 ? state.minute - 1 : state.second - 1,
+          // minute: state.minute < 1 ? state.hour - 1 : state.minute - 1,
+          // hour: state.hour - 1,
+
+          second: state.second - 1,
+          minute: state.minute - 1,
+          hour: state.hour - 1,
+
+        };
+      });
+    }, 1000);
+  }
+
 
   render() {
     return (
